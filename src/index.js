@@ -30,6 +30,7 @@ function showSlide(n) {
     }
   });
   slideIndex = n;
+  console.log(slideIndex);
   let currentSlide = slides[slideIndex];
   let currentSelector = selectors[slideIndex];
   currentSlide.classList.add("active");
@@ -38,7 +39,9 @@ function showSlide(n) {
 
 function setSlide(n) {
   slideIndex = n;
+  console.log(slideIndex);
   showSlide(slideIndex);
+  console.log(slideIndex);
 }
 
 let prev = document.querySelector(".prev");
@@ -69,7 +72,7 @@ slideshow.addEventListener("mouseleave", startAutoSlide);
 
 selectors.forEach((selector) => {
   selector.addEventListener('click', () => {
-    let index = selector.dataset.index;
-    showSlide(index);
+    let index = Number(selector.dataset.index);
+    setSlide(index);
   })
 })

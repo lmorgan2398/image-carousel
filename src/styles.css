@@ -23,6 +23,7 @@ body {
   flex-direction: column;
   gap: 8px;
   align-items: center;
+  height: min-content;
 }
 
 .slides {
