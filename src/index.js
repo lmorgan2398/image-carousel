@@ -2,6 +2,7 @@ import "./styles.css";
 
 let slideIndex = 0;
 let autoSlideInterval;
+let selectors = document.querySelectorAll(".selector");
 
 showSlide(slideIndex);
 startAutoSlide();
@@ -23,9 +24,21 @@ function showSlide(n) {
       slide.classList.remove("active");
     }
   });
+  selectors.forEach((selector) => {
+    if (selector.classList.contains("active")){
+      selector.classList.remove("active");
+    }
+  });
   slideIndex = n;
   let currentSlide = slides[slideIndex];
+  let currentSelector = selectors[slideIndex];
   currentSlide.classList.add("active");
+  currentSelector.classList.add("active");
+}
+
+function setSlide(n) {
+  slideIndex = n;
+  showSlide(slideIndex);
 }
 
 let prev = document.querySelector(".prev");
@@ -53,3 +66,10 @@ function stopAutoSlide() {
 let slideshow = document.querySelector(".slideshow");
 slideshow.addEventListener("mouseenter", stopAutoSlide);
 slideshow.addEventListener("mouseleave", startAutoSlide);
+
+selectors.forEach((selector) => {
+  selector.addEventListener('click', () => {
+    let index = selector.dataset.index;
+    showSlide(index);
+  })
+})
