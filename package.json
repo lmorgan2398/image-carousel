@@ -18,5 +18,12 @@
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
-  }
+  },
+  "name": "image-carousel",
+  "version": "1.0.0",
+  "main": "webpack.common.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
